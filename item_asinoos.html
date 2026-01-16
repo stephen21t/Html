@@ -7,16 +7,16 @@
 <style>
 @page {
   size: A4 portrait;
-  margin: 5mm; /* Reduced from 20mm to give more space; try 0 for max */
+  margin: 5mm; /* Minimal margin - change to 0 if your printer allows */
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  height: 100vh;
 }
 
-/* Centre content both vertically and horizontally */
 #content {
   width: 100%;
   height: 100vh;
@@ -27,25 +27,22 @@ body {
   text-align: center;
 }
 
-/* Reduced sizes slightly to fit better */
 .line1 {
-  font-size: 50pt; /* Was 60pt */
+  font-size: 18vw;     /* Scales with page width - ~60pt on A4 */
   font-weight: bold;
+  line-height: 1;
 }
 
 .line2 {
-  font-size: 60pt; /* Was 70pt */
-  margin-top: 20px;
+  font-size: 15vw;     /* Slightly smaller to fit "ASIN OOS" */
+  line-height: 1;
+  margin-top: 5vh;
 }
 
-/* Extra print-only tweaks for maximum space */
+/* Fallback for very small pages */
 @media print {
-  @page {
-    margin: 5mm; /* Or 0 if your printer supports edge-to-edge */
-  }
-  body {
-    -webkit-print-color-adjust: exact;
-  }
+  .line1 { font-size: 50pt; }
+  .line2 { font-size: 42pt; }
 }
 </style>
 </head>
