@@ -7,11 +7,12 @@
 <style>
 @page {
   size: A4 portrait;
-  margin: 20mm;
+  margin: 5mm; /* Reduced from 20mm to give more space; try 0 for max */
 }
 
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
 }
 
@@ -26,15 +27,25 @@ body {
   text-align: center;
 }
 
-/* Text styles */
+/* Reduced sizes slightly to fit better */
 .line1 {
-  font-size: 60pt;
+  font-size: 50pt; /* Was 60pt */
   font-weight: bold;
 }
 
 .line2 {
-  font-size: 70pt;
+  font-size: 60pt; /* Was 70pt */
   margin-top: 20px;
+}
+
+/* Extra print-only tweaks for maximum space */
+@media print {
+  @page {
+    margin: 5mm; /* Or 0 if your printer supports edge-to-edge */
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+  }
 }
 </style>
 </head>
