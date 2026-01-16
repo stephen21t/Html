@@ -7,13 +7,13 @@
 <style>
 @page {
   size: A4 portrait;
-  margin: 0; /* Maximize space - printers will enforce their own minimum */
+  margin: 5mm; /* Small safe margin - avoids cutoff on most printers */
 }
 
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: Arial, sans-serif;
 }
 
@@ -27,31 +27,22 @@ html, body {
 }
 
 .line1 {
-  font-size: 80pt;      /* Large starting size */
+  font-size: 18vw;     /* ~60pt on A4, scales automatically */
   font-weight: bold;
-  width: fit-content;   /* Key: allows auto-shrink */
-  max-width: 95%;       /* Safety limit */
+  line-height: 1;
 }
 
 .line2 {
-  font-size: 70pt;      /* Slightly smaller starting size for longer text */
-  width: fit-content;
-  max-width: 95%;
-  margin-top: 30pt;
+  font-size: 15vw;     /* Slightly smaller for longer "ASIN OOS" */
+  line-height: 1;
+  margin-top: 5vh;
 }
 
-/* Critical print styles */
 @media print {
+  /* Ensure no overflow or extra pages */
   html, body {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-  }
-  
-  .line1, .line2 {
-    -webkit-print-color-adjust: exact;
-    /* Auto-shrink text to fit width if needed */
-    font-size-adjust: none; /* Ensure consistent scaling */
+    height: 100vh;
+    overflow: hidden;
   }
 }
 </style>
