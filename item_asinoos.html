@@ -7,19 +7,18 @@
 <style>
 @page {
   size: A4 portrait;
-  margin: 5mm; /* Small safe margin */
+  margin: 20mm;
 }
 
-html, body {
+body {
   margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
+  font-family: Arial, sans-serif;
 }
 
+/* Centre content both vertically and horizontally */
 #content {
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,25 +26,15 @@ html, body {
   text-align: center;
 }
 
+/* Text styles */
 .line1 {
-  font-size: 22vw;     /* Huge for "LIQ" */
+  font-size: 60pt;
   font-weight: bold;
-  line-height: 1.1;
-  margin: 0;
 }
 
 .line2 {
-  font-size: 18vw;     /* Very large for "ASIN OOS" - fits perfectly */
-  font-weight: bold;
-  line-height: 1.1;
-  margin-top: 5vh;
-}
-
-@media print {
-  html, body {
-    height: 100vh;
-    background: white;
-  }
+  font-size: 70pt;
+  margin-top: 20px;
 }
 </style>
 </head>
@@ -58,21 +47,11 @@ html, body {
 </div>
 
 <script>
-// Trigger print after page loads
 window.onload = function () {
-  window.print();
+  setTimeout(function () {
+    window.print();
+  }, 500);
 };
-
-// Auto-close the tab/window after printing (works after user confirms print)
-window.onafterprint = function () {
-  window.close();  // Closes the tab/window
-};
-
-// Fallback: if onafterprint isn't supported or print is canceled, close after a delay
-setTimeout(function() {
-  // If still open after 30 seconds, assume print was done or canceled
-  window.close();
-}, 30000);
 </script>
 
 </body>
