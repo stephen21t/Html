@@ -21,14 +21,12 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;    /* vertical center */
-  align-items: flex-end;      /* RIGHT side */
+  justify-content: center;
+  align-items: flex-end;
   text-align: right;
-
-  padding-right: 0;           /* change if you want space from edge */
+  padding-right: 0;
 }
 
-/* Text styles */
 .line1 {
   font-size: 48pt;
   font-weight: bold;
@@ -52,10 +50,14 @@ body {
 window.onload = () => {
   setTimeout(() => {
     window.print();
+
+    // close tab shortly after print dialog opens
+    setTimeout(() => {
+      window.close();
+    }, 300);
   }, 500);
 };
 </script>
 
 </body>
 </html>
-
