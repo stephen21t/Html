@@ -7,7 +7,7 @@
 <style>
 @page {
   size: A4 portrait;
-  margin: 5mm; /* Safe small margin to avoid printer cutoff */
+  margin: 5mm; /* Small safe margin to prevent printer cutoff */
 }
 
 html, body {
@@ -15,33 +15,34 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: white; /* Ensures white background */
+  background-color: white;
 }
 
 #content {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;   /* Vertical centering */
+  align-items: center;       /* Horizontal centering */
   text-align: center;
 }
 
-/* Large bold text that auto-scales to fit perfectly */
-.line1 {
-  font-size: 18vw;     /* Scales with width - big but fits */
+/* Make both lines the same large size and perfectly centered */
+.line1, .line2 {
+  font-size: 17vw;           /* Same size, scales to fit page width */
   font-weight: bold;
   line-height: 1.2;
-  margin-bottom: 2vh;
+  margin: 0;
+  width: 100%;               /* Forces true horizontal center */
+  max-width: 95%;            /* Safety to avoid any edge overflow */
 }
 
+/* Slight spacing between the two lines */
 .line2 {
-  font-size: 14vw;     /* Slightly smaller for the longer "ASIN OOS" */
-  font-weight: bold;
-  line-height: 1.2;
+  margin-top: 4vh;
 }
 
-/* Extra safety for print */
+/* Extra print safety */
 @media print {
   html, body {
     height: 100vh;
