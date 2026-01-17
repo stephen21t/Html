@@ -7,7 +7,7 @@
 <style>
 @page {
   size: A4 portrait;
-  margin: 5mm; /* Small safe margin to prevent printer cutoff */
+  margin: 5mm; /* Small safe margin */
 }
 
 html, body {
@@ -22,34 +22,29 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* Vertical centering */
-  align-items: center;       /* Horizontal centering */
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-/* Make both lines the same large size and perfectly centered */
-.line1, .line2 {
-  font-size: 17vw;           /* Same size, scales to fit page width */
+.line1 {
+  font-size: 22vw;     /* Huge for "LIQ" */
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.1;
   margin: 0;
-  width: 100%;               /* Forces true horizontal center */
-  max-width: 95%;            /* Safety to avoid any edge overflow */
 }
 
-/* Slight spacing between the two lines */
 .line2 {
-  margin-top: 4vh;
+  font-size: 18vw;     /* Very large for "ASIN OOS" - fits perfectly */
+  font-weight: bold;
+  line-height: 1.1;
+  margin-top: 5vh;
 }
 
-/* Extra print safety */
 @media print {
   html, body {
     height: 100vh;
     background: white;
-  }
-  #content {
-    page-break-inside: avoid;
   }
 }
 </style>
@@ -63,11 +58,21 @@ html, body {
 </div>
 
 <script>
+// Trigger print after page loads
 window.onload = function () {
-  setTimeout(function () {
-    window.print();
-  }, 500);
+  window.print();
 };
+
+// Auto-close the tab/window after printing (works after user confirms print)
+window.onafterprint = function () {
+  window.close();  // Closes the tab/window
+};
+
+// Fallback: if onafterprint isn't supported or print is canceled, close after a delay
+setTimeout(function() {
+  // If still open after 30 seconds, assume print was done or canceled
+  window.close();
+}, 30000);
 </script>
 
 </body>
