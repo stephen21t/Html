@@ -15,25 +15,26 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Fully centre content */
+/* Center vertically, RIGHT align horizontally */
 #content {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-end;
+  text-align: right;
+  padding-right: 0;
 }
 
-/* Slightly reduced sizes */
+/* Text styles */
 .line1 {
-  font-size: 80pt;
+  font-size: 48pt;
   font-weight: bold;
 }
 
 .line2 {
-  font-size: 64pt;
+  font-size: 36pt;
   margin-top: 20px;
 }
 </style>
@@ -42,16 +43,25 @@ body {
 <body>
 
 <div id="content">
-  <div class="line1">LIQ</div>
+  <div class="line1">LIQUIDATE</div>
   <div class="line2">ASIN OOS</div>
 </div>
 
 <script>
-window.onload = () => {
-  setTimeout(() => {
+window.onload = function () {
+  setTimeout(function () {
     window.print();
-    setTimeout(() => window.close(), 400);
+
+    /* Firefox fallback close */
+    setTimeout(function () {
+      window.close();
+    }, 1000);
+
   }, 500);
+};
+
+window.onafterprint = function () {
+  window.close();
 };
 </script>
 
