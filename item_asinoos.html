@@ -6,22 +6,24 @@
 
 <style>
 @page {
-  size: A4 portrait;
-  margin: 20mm;
+  size: 100mm 50mm;
+  margin: 0;
 }
 
-body {
+html, body {
+  width: 100mm;
+  height: 50mm;
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Centre page content */
+/* Centre content on label */
 #content {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  justify-content: center;   /* horizontal centre */
-  align-items: center;       /* vertical centre */
+  justify-content: center;
+  align-items: center;
 }
 
 /* Text block */
@@ -30,26 +32,26 @@ body {
   text-align: center;
 }
 
-/* Main text */
+/* Main word */
 .line1 {
-  font-size: 68pt;
+  font-size: 42pt;   /* tuned for 100x50 label */
   font-weight: bold;
   line-height: 1;
 }
 
-/* Wrapper for the E */
+/* Wrap E for PS */
 .e-wrap {
   position: relative;
   display: inline-block;
 }
 
-/* PS under the E */
+/* PS under E */
 .ps {
   position: absolute;
-  bottom: -20px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14pt;
+  font-size: 10pt;
   font-weight: bold;
 }
 </style>
@@ -70,11 +72,12 @@ window.onload = function () {
   setTimeout(function () {
     window.print();
 
+    /* Firefox-safe close */
     setTimeout(function () {
       window.close();
-    }, 1000);
+    }, 800);
 
-  }, 500);
+  }, 300);
 };
 
 window.onafterprint = function () {
