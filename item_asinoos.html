@@ -15,27 +15,35 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Center vertically, RIGHT align horizontally */
+/* Centre vertically, RIGHT align horizontally */
 #content {
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   text-align: right;
-  padding-right: 0;
 }
 
-/* Text styles */
+/* Main text */
 .line1 {
   font-size: 48pt;
   font-weight: bold;
 }
 
-.line2 {
-  font-size: 36pt;
-  margin-top: 20px;
+/* Wrapper for the E */
+.e-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* PS under the E */
+.ps {
+  position: absolute;
+  bottom: -16px;
+  right: 0;
+  font-size: 12pt;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -43,8 +51,9 @@ body {
 <body>
 
 <div id="content">
-  <div class="line1">LIQUIDATE</div>
-  <div class="line2">ASIN OOS</div>
+  <div class="line1">
+    LIQUIDAT<span class="e-wrap">E<span class="ps">PS</span></span>
+  </div>
 </div>
 
 <script>
