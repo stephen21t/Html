@@ -15,19 +15,24 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Centre vertically, RIGHT align horizontally */
+/* Centre page content */
 #content {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: right;
+  justify-content: center;   /* horizontal centre */
+  align-items: center;       /* vertical centre */
+}
+
+/* Text block */
+#label {
+  position: relative;
+  text-align: center;
 }
 
 /* Main text */
 .line1 {
-  font-size: 68pt;   /* balanced size */
+  font-size: 68pt;
   font-weight: bold;
   line-height: 1;
 }
@@ -42,7 +47,8 @@ body {
 .ps {
   position: absolute;
   bottom: -20px;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 14pt;
   font-weight: bold;
 }
@@ -52,8 +58,10 @@ body {
 <body>
 
 <div id="content">
-  <div class="line1">
-    LIQUIDAT<span class="e-wrap">E<span class="ps">PS</span></span>
+  <div id="label">
+    <div class="line1">
+      LIQUIDAT<span class="e-wrap">E<span class="ps">PS</span></span>
+    </div>
   </div>
 </div>
 
