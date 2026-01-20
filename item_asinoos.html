@@ -27,7 +27,7 @@ body {
 
 /* Main text */
 .line1 {
-  font-size: 90pt;   /* increased size */
+  font-size: 68pt;   /* balanced size */
   font-weight: bold;
   line-height: 1;
 }
@@ -41,9 +41,9 @@ body {
 /* PS under the E */
 .ps {
   position: absolute;
-  bottom: -26px;     /* pushed down to match larger text */
+  bottom: -20px;
   right: 0;
-  font-size: 20pt;   /* larger PS */
+  font-size: 14pt;
   font-weight: bold;
 }
 </style>
@@ -62,7 +62,6 @@ window.onload = function () {
   setTimeout(function () {
     window.print();
 
-    /* Firefox fallback close */
     setTimeout(function () {
       window.close();
     }, 1000);
