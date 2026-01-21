@@ -15,23 +15,23 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Centre vertically, RIGHT align horizontally */
+/* TRUE centre of page */
 #content {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: right;
+  justify-content: center;   /* horizontal centre */
+  align-items: center;       /* vertical centre */
 }
 
-/* Main text */
+/* Text block */
 .line1 {
   font-size: 48pt;
   font-weight: bold;
+  text-align: center;
 }
 
-/* Wrap E so PS can sit under it */
+/* Wrap E */
 .e-wrap {
   position: relative;
   display: inline-block;
@@ -41,7 +41,8 @@ body {
 .ps {
   position: absolute;
   bottom: -14px;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 12pt;
   font-weight: bold;
 }
@@ -61,11 +62,9 @@ window.onload = function () {
   setTimeout(function () {
     window.print();
 
-    /* Firefox fallback */
     setTimeout(function () {
       window.close();
     }, 1000);
-
   }, 500);
 };
 
